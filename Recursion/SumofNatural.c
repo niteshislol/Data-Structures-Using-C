@@ -1,1 +1,1 @@
-"// SumofNatural.c" 
+// SumofNatural.c
