@@ -1,16 +1,29 @@
 #include <stdio.h>
+struct Array
+//github.com/niteshislol
+
+{
+    int A[20];
+    int size;
+    int length;
+};
+void Display(struct Array arr);
+void Display(struct Array arr){
+    int i;
+    printf("\nElements are\n");
+    for(i=0;i<arr.length;i++){
+        printf("%d ",arr.A[i]);
+    }
+}
+
+void Append(struct Array *arr , int x){
+    if(arr->length<arr->size){
+        arr->A[arr->length++]=x;}
+}
 
 int main() {
-    int arr[6] = {1, 2, 3, 4, 5};
-    int n = 5;
-    int newElement = 6;
-
-    arr[n] = newElement;
-    n++;
-
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    return 0;
-}
+  struct Array arr={{2,3,4,5,6},10,5};
+  Append(&arr,10);
+  Display(arr);
+  return 0;
+} 
