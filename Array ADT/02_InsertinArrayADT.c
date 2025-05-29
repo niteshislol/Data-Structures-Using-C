@@ -1,18 +1,35 @@
 #include <stdio.h>
+//github.com/niteshislol
 
-void insertElement(int arr[], int n, int element, int pos) {
-    for (int i = n; i >= pos; i--) {
-        arr[i] = arr[i - 1];
+struct Array
+{
+    int A[20];
+    int size;
+    int length;
+};
+void Display(struct Array arr);
+void Display(struct Array arr){
+    int i;
+    printf("\nElements are\n");
+    for(i=0;i<arr.length;i++){
+        printf("%d ",arr.A[i]);
     }
-    arr[pos - 1] = element;
 }
 
+
+void Insert(struct Array *arr,int index,int x){
+    if(index>=0 && index <= arr->length){
+        for(int i=arr->length;i>index;i--){
+            arr->A[i]=arr->A[i-1];
+
+        }
+        arr->A[index]=x;
+        arr->length++;
+    }
+}
 int main() {
-    int arr[6] = {1, 2, 4, 5, 6};
-    int n = 5;
-    insertElement(arr, n, 3, 3);
-    for (int i = 0; i < n + 1; i++) {
-        printf("%d ", arr[i]);
-    }
-    return 0;
-}
+  struct Array arr={{2,3,4,5,6},10,5};
+Insert(&arr,2,10);
+  Display(arr);
+  return 0;
+} 
