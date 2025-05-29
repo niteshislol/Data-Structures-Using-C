@@ -1,9 +1,34 @@
 #include <stdio.h>
+//github.com/niteshislol
 
-int main() {
-    int arr[5] = {1, 2, 3, 4, 5};
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", arr[i]);
+struct Array
+{
+    int *A;
+    int size;
+    int length;
+};
+void Display(struct Array arr){
+    int i;
+    printf("\nElements are\n");
+    for(i=0;i<arr.length;i++){
+        printf("%d ",arr.A[i]);
     }
-    return 0;
+}
+int main() {
+    int i,n;
+  struct Array arr;
+  printf("Enter Size: ");
+  scanf("%d",&arr.size);
+  arr.A=(int *)malloc(arr.size*sizeof(int));
+  arr.length = 0;
+
+  printf("Enter number of numbers : ");
+  scanf("%d",&n);
+  printf("Enter All Elements\n");
+  for(i=0;i<n;i++){
+    scanf("%d",&arr.A[i]);
+  }
+  arr.length=n;
+  Display(arr);
+  return 0;
 }
